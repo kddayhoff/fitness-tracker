@@ -9,16 +9,16 @@ module.exports = function (app) {
 
   // index route loads home page, index.html; 
   app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
   });
 
   // /exercise leads to page where user inputs their workouts
   app.get("/exercise", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/exercise.html"));
+    res.sendFile(path.join(__dirname, "./public/exercise.html"));
   });
 
   // /stats shows a user all of their workout stats
   app.get("/stats", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/stats.html"));
+    res.sendFile(path.join(__dirname, "./public/stats.html"));
   });
 }

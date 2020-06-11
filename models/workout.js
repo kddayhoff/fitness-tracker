@@ -9,12 +9,33 @@ day: {
   },
   exercises: [
       {
-        type: String,
-        name: String,
-        duration: Number,
-        weight: Number,
-        reps: Number,
-        sets: Number,
+        type: {
+          type: String,
+          trim:true,
+          required: "Enter an exercise type"
+        },
+
+        name: {
+          type: String,
+          trim: true,
+          required: "Enter the name of your exercise"
+        },
+
+        duration: { 
+          type:Number
+        },
+
+        weight:{ 
+          type: Number
+        },
+
+        reps: {
+          type: Number
+        },
+
+        sets: {
+           type: Number
+        }
       }
     ]
   });

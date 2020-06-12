@@ -12,7 +12,6 @@ day: {
         type: {
           type: String,
           trim:true,
-          required: "Enter an exercise type"
         },
 
         name: {
@@ -22,19 +21,23 @@ day: {
         },
 
         duration: { 
-          type:Number
+          type: Number,
+          required: "Enter length of workout"
         },
 
         weight:{ 
-          type: Number
+          type: Number,
+          required: "Enter weight for workout"
         },
 
         reps: {
-          type: Number
+          type: Number,
+          required: "Enter the amount of reps"
         },
 
         sets: {
-           type: Number
+           type: Number,
+           required: "Enter the amount of sets"
         }
       }
     ]

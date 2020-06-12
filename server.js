@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const mongojs = require("mongojs");
 const dotenv = require("dotenv");
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 const db = require("./models");
 

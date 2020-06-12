@@ -1,9 +1,9 @@
 const db = require("../models");
-
+const router = require("express").Router();
 module.exports = function (app) {
 
 //creates a new workout
-app.post("/workouts", (req,res) => {
+router.post("/api/workouts", (req,res) => {
   db.Workout.create({})
    .then((dbWorkout) => {
     res.json(dbWorkout);
@@ -13,9 +13,9 @@ app.post("/workouts", (req,res) => {
   });
 });
 //get all workouts
-app.get("/workouts", (req, res) => {
+router.get("/api/workouts", (req, res) => {
   db.Workout.find({})
-    .then(dbWorkout => { 
+    .then((dbWorkout) => { 
       res.json(dbWorkout);
     })
     .catch(err => {
@@ -24,12 +24,12 @@ app.get("/workouts", (req, res) => {
   });
 
   //updates a previously created workout
-app.put("/workouts/:id", ({body, params}, res) => {
+router.put("/api/workouts/:id", ({body, params}, res) => {
   db.Workout.findByIdAndUpdate(
-    {_id: req.params.id}, 
+      {_id: req.params.id}, 
       {$push: {exercises: body}}, 
       {new: true})
-    .then(dbWorkout => {
+    .then((dbWorkout) => {
       res.json(dbWorkout);
     })
     .catch(err => {
@@ -37,9 +37,10 @@ app.put("/workouts/:id", ({body, params}, res) => {
     })
   });
 //gets all workouts within the last 7 days to show up for the graphs
-app.get("/workouts/range", (req, res) => {
+router.get("/api/workouts/range", (req, res) => {
   db.Workout.find({})
-    .then(dbWorkout => {
+    .limit(7)
+    .then((dbWorkout) => {
       res.json(dbWorkout);
     })
     .catch(err => {

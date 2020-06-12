@@ -1,6 +1,9 @@
 # fitness-tracker Application
 This application allows a user to add exercises to a workout and can then view cumulative workouts to track progress.
 
+<img src="public/images/app-screenshot.png">
+
+
 ## Technology
 
 Javascript, Node.js, MongoDb, Mongoose, Express, and markdown(.md)

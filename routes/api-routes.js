@@ -5,7 +5,7 @@ module.exports = function (app) {
 //creates a new workout
 app.post("/workouts", (req,res) => {
   db.Workout.create({})
-   .then(dbWorkout => {
+   .then((dbWorkout) => {
     res.json(dbWorkout);
   })
   .catch(err => {
@@ -25,7 +25,8 @@ app.get("/workouts", (req, res) => {
 
   //updates a previously created workout
 app.put("/workouts/:id", ({body, params}, res) => {
-  db.Workout.findByIdAndUpdate(params.id, 
+  db.Workout.findByIdAndUpdate(
+    {_id: req.params.id}, 
       {$push: {exercises: body}}, 
       {new: true})
     .then(dbWorkout => {
@@ -38,7 +39,6 @@ app.put("/workouts/:id", ({body, params}, res) => {
 //gets all workouts within the last 7 days to show up for the graphs
 app.get("/workouts/range", (req, res) => {
   db.Workout.find({})
-    .limit(7)
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
